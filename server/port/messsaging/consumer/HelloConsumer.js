@@ -1,5 +1,9 @@
-import generateSqsConsumer from "../../config/aws.config";
+import generateSqsConsumer from "../../../config/aws/awsConsumer.config.js";
 
+const onMessage = (message) => {
+    const messageString = message.Body.toString();
+    console.log(`New message: ${messageString}`);
+}
 const onError = (err) => {
     let {message} = err;
     console.error(`Oh no! an error occurred: ${message}`);
@@ -13,11 +17,14 @@ const onTimeoutError = (err) => {
     console.error(`Oh no! an timeout error occurred: ${message}`);
 }
 
-const helloConsumer = generateSqsConsumer(
+const HelloConsumer = generateSqsConsumer(
     "hello-queue",
+    onMessage,
     onError,
     onProcessingError,
     onTimeoutError
 )
 
-helloConsumer.start()
+HelloConsumer.start()
+
+export default HelloConsumer;

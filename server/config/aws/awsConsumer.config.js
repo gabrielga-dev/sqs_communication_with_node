@@ -19,12 +19,14 @@ const generateSqsConsumer = (
 
         handleMessage: handleMessage,
         sqs: new SQSClient({
+            endpoint: `${sqsUrl}/${queueName}`,
             region: region,
             credentials: {
                 accessKeyId: accessKeyId,
                 secretAccessKey: secretKey,
             },
         }),
+        useQueueUrlAsEndpoint: false
     });
     sqsConsumer.on("error", onError);
     sqsConsumer.on("processing_error", onProcessingError);
