@@ -25,6 +25,4 @@ const HelloConsumer = generateSqsConsumer(
     onTimeoutError
 )
 
-HelloConsumer.start()
-
 export default HelloConsumer;

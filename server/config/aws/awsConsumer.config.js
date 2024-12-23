@@ -26,7 +26,6 @@ const generateSqsConsumer = (
                 secretAccessKey: secretKey,
             },
         }),
-        useQueueUrlAsEndpoint: false
     });
     sqsConsumer.on("error", onError);
     sqsConsumer.on("processing_error", onProcessingError);

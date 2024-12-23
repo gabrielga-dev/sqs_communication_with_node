@@ -19,7 +19,6 @@ const generateSqsProducer = (queueName) => (
                 secretAccessKey: secretKey
             }
         }),
-        useQueueUrlAsEndpoint: false
     })
 );
 

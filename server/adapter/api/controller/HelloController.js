@@ -1,4 +1,4 @@
-import HelloProducer from "../messsaging/producer/HelloProducer.js";
+import HelloProducer from "../../messsaging/producer/HelloProducer.js";
 import { v4 as uuidV4 } from 'uuid';
 
 const generateDefaultHelloMessage = () => ({
@@ -14,6 +14,7 @@ const HelloController = {
 
         HelloProducer.send([message])
             .then(_ => {
+                console.log('Message sent!');
                 status = 201;
                 responseMessage = 'OK!';
             })

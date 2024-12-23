@@ -39,6 +39,9 @@ values in the [configuration file](./config/default.json).
 Once the project is running, you can consume its APIs by accessing the 
 [swagger documentation](http://localhost:3000/api-docs/).
 
+When you consume the send-hello API, check the terminal to see the logs. The log 'Message sent!' will appear when 
+a message was sent successfully, and the log 'New message: ...' will appear when a message was consumed from the queue.
+
 
 ## 🇧🇷 Português
 
@@ -72,3 +75,6 @@ o Expressjs.
 ### Como consumir
 
 Quando o projeto estiver rodando, você pode consumir sua API acessando a [documentação swagger](http://localhost:3000/api-docs/).
+
+Quando você consumir a API send-hello, olhe o terminal para ver os logs. O log 'Message sent!' vai aparecer quando uma
+mensagem for enviada com sucesso, e o log 'New message: ...' vai aparecer quando uma mensagem for consumida da fila.
