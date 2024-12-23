@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+
+  aws:
+    image: 'localstack/localstack'
+    container_name: 'localstack'
+    environment:
+      - SERVICES=sqs
+      - AWS_DEFAULT_REGION=us-east-1
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+      - AWS_ACCESS_KEY_ID=access_key_id
+      - AWS_SECRET_ACCESS_KEY=access_key
+    ports:
+      - '4566:4566'
+    volumes:
+      - ./aws-test-setup:/docker-entrypoint-initaws.d:ro
+      - ./aws-test-setup:/etc/localstack/init/ready.d
+networks:
+  localstack_network:
+    driver: bridge
